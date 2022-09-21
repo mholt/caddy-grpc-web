@@ -5,6 +5,14 @@ This module implements a bridge from gRPC-Web clients to gRPC servers. It is sim
 
 To convert gRPC-Web requests to gRPC, simply add the `grpc_web` handler to your HTTP route. It should go before your `reverse_proxy` or any other handler that would expect a gRPC request.
 
+## Installation
+
+A new Caddy server with this module needs to be built to support GRPC-web calls. Build it with:
+
+```
+docker build -t <account_name>/caddy-grpc .
+```
+
 ## Example
 
 Caddyfile:
