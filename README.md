@@ -1,4 +1,5 @@
-# gRPC-Web Bridge for Caddy
+gRPC-Web Bridge for Caddy
+=========================
 
 This module implements a bridge from gRPC-Web clients to gRPC servers. It is similar to Envoy's `envoy.filters.http.grpc_web` filter. **It is EXPERIMENTAL and subject to change.**
 
@@ -31,36 +32,41 @@ JSON:
 
 ```json
 {
-  "apps": {
-    "http": {
-      "servers": {
-        "srv0": {
-          "listen": [":5452"],
-          "routes": [
-            {
-              "handle": [
-                {
-                  "handler": "grpc_web"
-                },
-                {
-                  "handler": "reverse_proxy",
-                  "transport": {
-                    "protocol": "http",
-                    "versions": ["h2c", "2"]
-                  },
-                  "upstreams": [
-                    {
-                      "dial": "127.0.0.1:50051"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      }
-    }
-  }
+	"apps": {
+		"http": {
+			"servers": {
+				"srv0": {
+					"listen": [
+						":5452"
+					],
+					"routes": [
+						{
+							"handle": [
+								{
+									"handler": "grpc_web"
+								},
+								{
+									"handler": "reverse_proxy",
+									"transport": {
+										"protocol": "http",
+										"versions": [
+											"h2c",
+											"2"
+										]
+									},
+									"upstreams": [
+										{
+											"dial": "127.0.0.1:50051"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			}
+		}
+	}
 }
 ```
 
