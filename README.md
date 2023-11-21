@@ -3,6 +3,9 @@ gRPC-Web Bridge for Caddy
 
 This module implements a bridge from gRPC-Web clients to gRPC servers. It is similar to Envoy's `envoy.filters.http.grpc_web` filter. **It is EXPERIMENTAL and subject to change.**
 
+> [!NOTE]
+> This is not an official repository of the [Caddy Web Server](https://github.com/caddyserver) organization.
+
 To convert gRPC-Web requests to gRPC, simply add the `grpc_web` handler to your HTTP route. It should go before your `reverse_proxy` or any other handler that would expect a gRPC request.
 
 ## Installation
